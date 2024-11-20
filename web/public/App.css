@@ -132,3 +132,40 @@ footer {
 .convert-button:hover {
   background-color: #218838;
 }
+
+.image-container div {
+  display: inline-block;
+  text-align: center;
+  margin: 10px;
+}
+
+.image-container img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.image-container a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.image-container a:hover {
+  text-decoration: underline;
+}
+
+#preview {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#preview img, #preview video {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  max-width: 200px;
+  max-height: 200px;
+}
