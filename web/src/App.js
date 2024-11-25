@@ -1,49 +1,65 @@
-const fileInput = document.getElementById('fileInput');
-const preview = document.getElementById('preview');
+import React, { useState } from "react";
 
-// 파일 입력 변경 시 미리보기 처리
-if (fileInput && preview) {
-    fileInput.addEventListener('change', () => {
-        preview.innerHTML = ''; // 이전 미리보기 제거
-        const files = fileInput.files;
+function App() {
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [rotatedImage, setRotatedImage] = useState(null);
 
-        Array.from(files).forEach(file => {
-            const fileReader = new FileReader();
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+  };
 
-            fileReader.onload = (e) => {
-                let element;
-                if (file.type.startsWith('image/')) {
-                    element = document.createElement('img');
-                    element.src = e.target.result;
-                } else if (file.type.startsWith('video/')) {
-                    element = document.createElement('video');
-                    element.src = e.target.result;
-                    element.controls = true;
-                }
-                element.style.width = '200px';
-                preview.appendChild(element);
-            };
-            fileReader.readAsDataURL(file);
-        });
-    });
-}
+  const handleUpload = async () => {
+    if (!selectedFile) {
+      alert("이미지를 선택하세요.");
+      return;
+    }
 
-// 파일 업로드 함수
-function uploadFiles() {
-  const formData = new FormData();
-  if (fileInput && fileInput.files.length > 0) {
-      Array.from(fileInput.files).forEach(file => {
-          formData.append('files[]', file);
+    const formData = new FormData();
+    formData.append("image", selectedFile);
+
+    try {
+      const response = await fetch("/rotate-image", {
+        method: "POST",
+        body: formData,
       });
 
-      fetch('/upload', {
-          method: 'POST',
-          body: formData,
-      })
-          .then(response => response.json())
-          .then(data => console.log('Success:', data))
-          .catch(error => console.error('Error:', error));
-  } else {
-      alert('업로드할 파일을 선택하세요.');
-  }
+      if (response.ok) {
+        const blob = await response.blob();
+        const imageUrl = URL.createObjectURL(blob);
+        setRotatedImage(imageUrl);
+      } else {
+        alert("이미지 처리 중 오류가 발생했습니다.");
+      }
+    } catch (error) {
+      console.error("Error uploading image:", error);
+    }
+  };
+
+  return (
+
+    
+
+      <main class="upload-container">
+         <header>
+    <h1>객체 인식 AI</h1>
+    <p>저조도 환경에서 객체 인식을 해보세요</p>
+  </header>
+        <div class="upload-box" id="uploadBox">
+        <input type="file" accept="image/*" onChange={handleFileChange} />
+        <p>여기에 파일을 드래드하거나 클릭하여 업로드하세요</p>
+        {rotatedImage && (
+          <div>
+            <img src={rotatedImage} alt="Rotated" style={{ maxWidth: "100%" }} />
+          </div>
+        )}
+        </div>
+        <footer>
+        <button class="convert-button" onClick={handleUpload}>이미지 업로드</button>
+        </footer>
+      </main>
+      
+    
+  );
 }
+
+export default App;

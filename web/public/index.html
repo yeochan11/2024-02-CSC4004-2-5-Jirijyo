@@ -9,6 +9,7 @@
 </head>
 
 <body>
+  <div id="root"></div>
   <div class="nav">
     지리죠
     <div class="nav-items">
@@ -19,23 +20,10 @@
     <!-- 여기에 본문 내용이 들어갑니다 -->
     <p> </p>
   </div>
-  <header>
-    <h1>객체 인식 AI</h1>
-    <p>저조도 환경에서 객체 인식을 해보세요</p>
-  </header>
+  
 
-  <main class="upload-container">
-    <div class="upload-box" id="uploadBox">
-      <p>여기에 파일을 드래그하거나 클릭하여 업로드하세요</p>
-      <input type="file" id="fileInput" accept=".jpg, .jpeg, .png" hidden multiple>
-      <button class="select-button" onclick="document.getElementById('fileInput').click();">파일 선택</button>
-    </div>
-    <div id="fileList"></div>
-  </main>
-
-  <footer>
-    <button class="convert-button" onclick="uploadFiles()">검사하기</button>
-  </footer>
+  
+  
 
   <script src="App.js"></script>
 </body>
