@@ -36,136 +36,65 @@ html {
 
 body {
    padding-top: 50px; /* 네비게이션 바 높이만큼 상단 여백을 줌 */
+   margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  background-color: #f4f6f8;
+  background-color: #f4f4f9;
   color: #333;
-}
-
-header {
   text-align: center;
-  margin-top: 2rem;
+
 }
 
-header h1 {
-  font-size: 2rem;
-  color: #333333;
-}
-
-header p {
-  margin-top: 0.5rem;
-  font-size: 1rem;
-  color: #666666;
-}
-
-.upload-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 2rem;
-  width: 100%;
-  max-width: 600px;
-}
-
-.upload-box {
-  width: 100%;
-  max-width: 500px;
-  border: 2px dashed #a1a1a1;
-  border-radius: 8px;
-  padding: 3rem;
-  text-align: center;
-  background-color: #ffffff;
-  transition: background 0.3s;
-  cursor: pointer;
-}
-
-.upload-box:hover {
-  background-color: #f9f9f9;
-}
-
-.select-button {
-  display: inline-block;
-  background-color: #007bff;
+.header {
+  background-color: #f8a738;
   color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 4px;
-  margin-top: 1rem;
-  transition: background 0.3s;
+  padding: 85px 39.44%;
+  margin-bottom: 80px;
 }
 
-.select-button:hover {
-  background-color: #0056b3;
+.header h1 {
+  font-size: 2.5em;
+  margin: 0;
 }
 
-#fileList {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: #555555;
+.header p {
+  font-size: 1.2em;
+  margin: 5px 0 0;
 }
-
-footer {
-  width: 100%;
-  max-width: 600px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-.convert-button {
-  width: 100%;
+.container {
+  background-color: white;
   max-width: 500px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  padding: 1rem;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background 0.3s;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.convert-button:hover {
-  background-color: #218838;
+
+#file-upload {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
 }
 
-.image-container div {
+/* 업로드 버튼 */
+.upload-button {
   display: inline-block;
-  text-align: center;
-  margin: 10px;
+  background-color: #f8a738;
+  color: white;
+  font-size: 1em;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.image-container img {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  max-width: 200px;
-  max-height: 200px;
-}
-
-.image-container a {
-  color: #007bff;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.image-container a:hover {
-  text-decoration: underline;
-}
-
-#preview {
-  margin-top: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-#preview img, #preview video {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  max-width: 200px;
-  max-height: 200px;
+.upload-button:hover {
+  background-color: #e07828;
 }

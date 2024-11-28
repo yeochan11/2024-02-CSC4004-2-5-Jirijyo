@@ -34,32 +34,6 @@ function App() {
       console.error("Error uploading image:", error);
     }
   };
-
-  return (
-
-    
-
-      <main class="upload-container">
-         <header>
-    <h1>객체 인식 AI</h1>
-    <p>저조도 환경에서 객체 인식을 해보세요</p>
-  </header>
-        <div class="upload-box" id="uploadBox">
-        <input type="file" accept="image/*" onChange={handleFileChange} />
-        <p>여기에 파일을 드래드하거나 클릭하여 업로드하세요</p>
-        {rotatedImage && (
-          <div>
-            <img src={rotatedImage} alt="Rotated" style={{ maxWidth: "100%" }} />
-          </div>
-        )}
-        </div>
-        <footer>
-        <button class="convert-button" onClick={handleUpload}>이미지 업로드</button>
-        </footer>
-      </main>
-      
-    
-  );
 }
 
 export default App;
